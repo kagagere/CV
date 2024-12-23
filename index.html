@@ -54,6 +54,12 @@
       padding: 0 2rem;
       z-index: 999;
       box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      transition: transform 0.5s ease; /* Add transition for animation */
+    }
+
+    /* Header Animation (Hide on scroll down, show on scroll up) */
+    .header-hidden {
+      transform: translateY(-60px); /* Hide the header */
     }
 
     .logo {
@@ -125,6 +131,7 @@
       font-size: 2.4rem;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      animation: fadeInUp 1s ease; /* Fade in animation */
     }
 
     .hero h2 {
@@ -132,6 +139,7 @@
       margin-bottom: 2rem;
       font-weight: 300;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      animation: fadeInUp 1.5s ease; /* Fade in animation with delay */
     }
 
     .hero button {
@@ -145,6 +153,7 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 2s ease; /* Fade in animation with delay */
     }
 
     .hero button:hover {
@@ -381,6 +390,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /***********************************************
+    * KEYFRAMES FOR ANIMATIONS
+    ***********************************************/
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -401,7 +424,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Abdoul Karim OUMAROU GAGERE</h1>
-      <h2>Financial Analysis &amp; Risk Management Expert</h2>
+      <h2>Financial Analysis & Risk Management Expert</h2>
       <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">
         Learn More
       </button>
@@ -446,28 +469,28 @@
 
         <!-- Example Progress Bars for Skills -->
         <div class="skills-item">
-          <div class="skill-label">Financial Analysis &amp; Reporting</div>
+          <div class="skill-label">Financial Analysis & Reporting</div>
           <div class="progress-bar">
             <div class="progress" data-progress="90"></div>
           </div>
         </div>
 
         <div class="skills-item">
-          <div class="skill-label">Risk Assessment &amp; Management</div>
+          <div class="skill-label">Risk Assessment & Management</div>
           <div class="progress-bar">
             <div class="progress" data-progress="88"></div>
           </div>
         </div>
 
         <div class="skills-item">
-          <div class="skill-label">Regulatory Compliance (WAEMU &amp; International)</div>
+          <div class="skill-label">Regulatory Compliance (WAEMU & International)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="85"></div>
           </div>
         </div>
 
         <div class="skills-item">
-          <div class="skill-label">Stakeholder Management &amp; Collaboration</div>
+          <div class="skill-label">Stakeholder Management & Collaboration</div>
           <div class="progress-bar">
             <div class="progress" data-progress="90"></div>
           </div>
@@ -488,7 +511,7 @@
         </div>
 
         <div class="skills-item">
-          <div class="skill-label">Training &amp; Capacity Building (Financial Context)</div>
+          <div class="skill-label">Training & Capacity Building (Financial Context)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="85"></div>
           </div>
@@ -502,7 +525,7 @@
         </div>
 
         <div class="skills-item">
-          <div class="skill-label">Bilingual Communication (French &amp; English)</div>
+          <div class="skill-label">Bilingual Communication (French & English)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="95"></div>
           </div>
@@ -598,7 +621,7 @@
 
     <!-- EDUCATION -->
     <section id="education" class="hidden">
-      <h2>Education &amp; Certifications</h2>
+      <h2>Education & Certifications</h2>
       <div class="education-content">
         <div class="edu-cert-grid">
           <!-- Education -->
@@ -630,7 +653,7 @@
     <!-- Removed email link; only phone was requested to remain. -->
   </footer>
 
-  <!-- JS: Intersection Observer + Skill Bar Animation -->
+  <!-- JS: Intersection Observer + Skill Bar Animation + Header Animation -->
   <script>
     // Reveal sections on scroll
     const hiddenSections = document.querySelectorAll('.hidden');
@@ -663,6 +686,23 @@
           }
         }
       });
+    });
+
+    // Header animation (hide on scroll down, show on scroll up)
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        header.classList.add('header-hidden');
+      } else {
+        // Scrolling up
+        header.classList.remove('header-hidden');
+      }
+
+      lastScrollY = currentScrollY;
     });
   </script>
 </body>
