@@ -1,130 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdoul Karim OUMAROU GAGERE - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - Abdoul Karim OUMAROU GAGERE</title>
+  <!-- 
+    If you want icons, you can also link a library like FontAwesome or Google Material Icons:
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  -->
+  <style>
+    /* ----------------------------- 
+       RESET / GLOBAL STYLES
+       ----------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden; /* hide horizontal scroll if there's any overflow */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul, li {
+      list-style: none;
+    }
+
+    /* -----------------------------
+       COLORS / THEME
+       You can easily change these if you want a different palette
+       ----------------------------- */
+    :root {
+      --primary-color: #162447; /* Dark royal blue */
+      --secondary-color: #1f4068; /* A deeper blue */
+      --accent-color: #e43f5a; /* A vibrant accent (red/pinkish) */
+      --light-color: #ffffff;
+      --gray-color: #888888;
+      --section-bg-color: #fdfdfd;
+    }
+
+    /* -----------------------------
+       HEADER STYLES
+       ----------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background-color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--light-color);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: var(--light-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Responsive header for smaller devices */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; /* Hide on small screens - optional. 
+                         Could add hamburger if you'd like. */
+      }
+    }
+
+    /* -----------------------------
+       HERO SECTION
+       ----------------------------- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+      );
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: #ddd;
+    }
+
+    .hero button {
+      padding: 0.7rem 2rem;
+      background-color: var(--accent-color);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* -----------------------------
+       ABOUT / SUMMARY
+       ----------------------------- */
+    #about {
+      min-height: 100vh;
+      background-color: var(--section-bg-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .personal-info {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--gray-color);
+    }
+
+    .summary {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* -----------------------------
+       SKILLS
+       ----------------------------- */
+    #skills {
+      min-height: 100vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .skills-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .skills-content h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      background: var(--section-bg-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-3px);
+    }
+
+    /* -----------------------------
+       EXPERIENCE
+       ----------------------------- */
+    #experience {
+      min-height: 100vh;
+      background-color: var(--section-bg-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .experience-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .experience-content h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .job {
+      background: #fff;
+      margin-bottom: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .job h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+      color: var(--accent-color);
+    }
+
+    .job h4 {
+      color: var(--primary-color);
+      margin-bottom: 0.2rem;
+    }
+
+    .job h5 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--gray-color);
+    }
+
+    .job ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+      list-style: square;
+    }
+
+    /* -----------------------------
+       EDUCATION & CERTIFICATIONS
+       ----------------------------- */
+    #education {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .education-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .education-certification-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .education-certification-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .edu-block, .cert-block {
+      background: var(--section-bg-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .edu-block h3, .cert-block h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .edu-block ul, .cert-block ul {
+      list-style: circle;
+      padding-left: 1.4rem;
+    }
+
+    /* -----------------------------
+       FOOTER
+       ----------------------------- */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem 2rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      margin: 0 0.3rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* -----------------------------
+       SCROLL ANIMATIONS (Optional)
+       We'll add a fade-in effect for sections with basic intersection observer in JS
+       ----------------------------- */
+    .hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-
-    <header>
-        <div class="container">
-            <h1>Abdoul Karim OUMAROU GAGERE</h1>
-            <p>Financial Professional | Standardization & Regulatory Compliance Expert</p>
-        </div>
-    </header>
-
+  <!-- Header -->
+  <header>
+    <div class="logo">AKOG</div>
     <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education & Certs</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <section id="about" class="content-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="profile-image">
-                    <img src="assets/profile.jpg" alt="Abdoul Karim OUMAROU GAGERE" loading="lazy">
-                </div>
-                <div class="about-text">
-                    <p>Highly analytical and results-oriented financial professional with over eight years of experience working within the West African financial sector, specializing in financial standardization and regulatory compliance.</p>
-                    <p>Proven ability to analyze financial data, assess risks, and ensure adherence to stringent regulatory frameworks within the WAEMU region. Extensive experience collaborating with and understanding the operational needs of financial institutions.</p>
-                    <p>Seeking to leverage expertise in financial analysis, risk assessment, and stakeholder management.</p>
-                </div>
-            </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Abdoul Karim OUMAROU GAGERE</h1>
+    <h2>Financial Analysis &amp; Risk Management Expert</h2>
+    <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">
+      Learn More
+    </button>
+  </section>
+
+  <!-- ABOUT / SUMMARY SECTION -->
+  <section id="about" class="hidden">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <div class="personal-info">
+        <p>Address: Liberté 6 extension — Dakar, SENEGAL</p>
+        <p>Phone: (+221) 78 439 1923</p>
+        <p>Email: abdoulkarim.gagere@gmail.com</p>
+        <p>Nationality: Nigerien</p>
+        <p>Marital Status: Married, 1 child</p>
+      </div>
+      <div class="summary">
+        <p>
+          Highly analytical and results-oriented financial professional with over eight years 
+          of experience working within the West African financial sector, specializing in 
+          financial standardization and regulatory compliance. Proven ability to analyze 
+          financial data, assess risks, and ensure adherence to stringent regulatory 
+          frameworks within the WAEMU region. Extensive experience collaborating with and 
+          understanding the operational needs of financial institutions. Possesses a strong 
+          understanding of financial instruments and regulatory environments gained through 
+          implementing key financial standards.<br/><br/>
+
+          Seeking to leverage expertise in financial analysis, risk assessment, and 
+          stakeholder management to contribute to Shelter Afrique's mission of promoting 
+          sustainable housing development in Africa by effectively managing and optimizing 
+          loan portfolios. Fluent in English and French.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="hidden">
+    <div class="skills-content">
+      <h2>My Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          Financial Analysis &amp; Reporting
         </div>
-    </section>
-
-    <section id="experience" class="content-section">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Standardization Specialist</h3>
-                <p class="company">CONOBAFI, Dakar, Senegal | May 2019 – Present</p>
-                <ul>
-                    <li>Led the development and implementation of an interoperable QR Code payment standard.</li>
-                    <li>Ensured projects consistently met stringent WAEMU regulations.</li>
-                    <li>Prepared detailed project proposals and strategic notes.</li>
-                    </ul>
-            </div>
-             <div class="experience-item">
-                <h3>Senior Bilingual Financial Service Representative</h3>
-                <p class="company">FIDELITY INVESTMENTS CANADA, Toronto, Canada | Dec 2015 – Jan 2018</p>
-                <ul>
-                    <li>Provided expert advice to clients on mutual funds regulations and investment strategies.</li>
-                    <li>Managed client inquiries and provided support to investment brokers.</li>
-                    <li>Contributed to process improvement initiatives.</li>
-                </ul>
-            </div>
-            <!-- Add more experience items -->
+        <div class="skill-item">
+          Risk Assessment &amp; Management
         </div>
-    </section>
-
-    <section id="skills" class="content-section">
-        <div class="container">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>Financial Analysis & Reporting</li>
-                <li>Risk Assessment & Management</li>
-                <li>Regulatory Compliance (WAEMU & International Standards)</li>
-                <li>Stakeholder Management & Collaboration</li>
-                <li>Project Management (Financial Focus)</li>
-                <li>Understanding of Financial Institutions</li>
-                <li>Training & Capacity Building</li>
-                <li>Microsoft Office Suite</li>
-                <li>Bilingual Communication (French & English)</li>
-                <!-- Add more skills -->
-            </ul>
+        <div class="skill-item">
+          Regulatory Compliance (WAEMU &amp; Int'l Standards)
         </div>
-    </section>
-
-    <section id="projects" class="content-section">
-        <div class="container">
-            <h2>Projects</h2>
-            <p>Showcase some of your projects here (optional for a basic portfolio).</p>
-            <!-- Add project items if applicable -->
+        <div class="skill-item">
+          Stakeholder Management &amp; Collaboration
         </div>
-    </section>
-
-    <section id="contact" class="content-section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out!</p>
-            <ul class="contact-list">
-                <li><i class="fas fa-envelope"></i> <a href="mailto:abdoulkarim.gagere@gmail.com">abdoulkarim.gagere@gmail.com</a></li>
-                <li><i class="fas fa-phone"></i> (+221) 78 439 1923</li>
-                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
-                <!-- Add more contact info (GitHub, etc.) -->
-            </ul>
+        <div class="skill-item">
+          Project Management (Financial Focus)
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Abdoul Karim OUMAROU GAGERE. All rights reserved.</p>
+        <div class="skill-item">
+          Understanding of Financial Institutions
         </div>
-    </footer>
+        <div class="skill-item">
+          Training &amp; Capacity Building (Financial Context)
+        </div>
+        <div class="skill-item">
+          Software Proficiency: Microsoft Office Suite
+        </div>
+        <div class="skill-item">
+          Bilingual Communication (French &amp; English)
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Simple smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="hidden">
+    <div class="experience-content">
+      <h2>Professional Experience</h2>
 
+      <!-- Job 1 -->
+      <div class="job">
+        <h3>CONOBAFI</h3>
+        <h4>Standardization Specialist</h4>
+        <h5>May 2019 – Present (Dakar, Senegal)</h5>
+        <ul>
+          <li>
+            Led development and implementation of interoperable QR Code payment standard 
+            and direct debit payment standard adopted by the BCEAO, impacting over 
+            130 banks across the WAEMU region.
+          </li>
+          <li>
+            Ensured projects met WAEMU regulations by liaising with regulatory bodies 
+            (BCEAO, AMF-UMOA), demonstrating strong regulatory understanding.
+          </li>
+          <li>
+            Prepared project proposals, progress reports, and strategic notes for 
+            executive committees; managed budgets (approx. $48,000 USD annually).
+          </li>
+          <li>
+            Drafted RFPs and Terms of Reference for standardization projects, aligning 
+            with regulatory standards and fostering transparency.
+          </li>
+          <li>
+            Developed internal procedures and quality assurance checks to improve 
+            financial accountability and operational efficiency.
+          </li>
+          <li>
+            Organized and conducted workshops in seven West African countries to build 
+            regional capacity in financial standardization and compliance.
+          </li>
+          <li>
+            Engaged with BCEAO, AMF-UMOA, and financial institutions to provide training 
+            and presentations, fostering strong partnerships.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="job">
+        <h3>FIDELITY INVESTMENTS CANADA</h3>
+        <h4>Senior Bilingual Financial Service Representative</h4>
+        <h5>Dec 2015 – Jan 2018 (Toronto, Canada)</h5>
+        <ul>
+          <li>
+            Provided expert advice on mutual fund regulations and investment strategies, 
+            leveraging deep knowledge of financial products.
+          </li>
+          <li>
+            Managed client inquiries and supported investment brokers, adhering to 
+            regulatory requirements in client interactions.
+          </li>
+          <li>
+            Contributed to process improvement initiatives for enhanced service delivery 
+            in a regulated financial environment.
+          </li>
+          <li>
+            Ensured strict compliance with Canadian financial regulations and company 
+            policies in all client engagements.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="job">
+        <h3>CHASE PAYMENTECH</h3>
+        <h4>Bilingual Client Service Specialist</h4>
+        <h5>Feb 2015 – Dec 2015 (Toronto, Canada)</h5>
+        <ul>
+          <li>
+            Provided technical support to merchants on payment systems, requiring 
+            understanding of financial transaction processes and security.
+          </li>
+          <li>
+            Analyzed financial transactions to resolve discrepancies and prevent fraud, 
+            showcasing attention to detail in financial matters.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTIFICATIONS SECTION -->
+  <section id="education" class="hidden">
+    <div class="education-content">
+      <h2 style="text-align:center;">Education &amp; Certifications</h2>
+
+      <div class="education-certification-section">
+        <!-- Education -->
+        <div class="edu-block">
+          <h3>Education</h3>
+          <ul>
+            <li>Post Graduate Diploma in Finance — University of Quebec at Trois-Rivieres (2014)</li>
+            <li>Bachelor of Arts in Economics — University Moulay Ismail Meknes (2011)</li>
+          </ul>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cert-block">
+          <h3>Certifications</h3>
+          <ul>
+            <li>ISO 20022 CBPR+ (2023)</li>
+            <li>Operational Risk Management (2023)</li>
+            <li>Quality Management Systems ISO 9001 (2022)</li>
+            <li>Project Management Training (2021)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 Abdoul Karim OUMAROU GAGERE</p>
+    <p>
+      <a href="mailto:abdoulkarim.gagere@gmail.com">Email</a> | 
+      <a href="tel:+221784391923">Phone</a> 
+    </p>
+  </footer>
+
+  <!-- JavaScript (Optional) 
+       This script is used to reveal sections smoothly as you scroll
+  -->
+  <script>
+    // Basic intersection observer for fade-in effect
+    const hiddenSections = document.querySelectorAll('.hidden');
+
+    const revealSection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // Stop observing once shown
+        }
+      });
+    };
+
+    const observerOptions = {
+      threshold: 0.1,
+    };
+
+    const sectionObserver = new IntersectionObserver(revealSection, observerOptions);
+
+    hiddenSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+  </script>
 </body>
 </html>
