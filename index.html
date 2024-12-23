@@ -125,6 +125,26 @@
       z-index: 1;
       max-width: 800px;
       padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Profile Image */
+    .profile-img-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 4px solid var(--accent-color);
+      animation: fadeInUp 1s ease;
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero h1 {
@@ -159,6 +179,39 @@
     .hero button:hover {
       background-color: #c9a10c;
       transform: translateY(-3px);
+    }
+
+    /***********************************************
+    * SUMMARY STATS
+    ***********************************************/
+    .summary-stats {
+      background-color: var(--primary-color);
+      color: var(--light-text-color);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
     /***********************************************
@@ -423,11 +476,36 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
+      <div class="profile-img-container">
+        <img src="your_photo.jpg" alt="Profile Picture of Abdoul Karim OUMAROU GAGERE" />
+      </div>
       <h1>Abdoul Karim OUMAROU GAGERE</h1>
       <h2>Financial Analysis & Risk Management Expert</h2>
       <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">
         Learn More
       </button>
+    </div>
+  </section>
+
+  <!-- SUMMARY STATS -->
+  <section class="summary-stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">130+</div>
+        <div class="stat-label">Banks Impacted (WAEMU)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Countries Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Languages (Fluent)</div>
+      </div>
     </div>
   </section>
 
