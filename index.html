@@ -31,7 +31,7 @@
     }
 
     :root {
-      /* New blues + neutral palette */
+      /* Blue palette + neutral background */
       --primary-color: #1E3A8A; /* Deep Blue */
       --secondary-color: #3B82F6; /* Vibrant Blue */
       --accent-color: #2563EB;   /* Mid-tone Blue for Buttons/Accents */
@@ -54,8 +54,8 @@
       justify-content: space-between;
       padding: 0 2rem;
       z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.5s ease; /* Add transition for animation */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease; /* Smooth hide on scroll */
     }
 
     /* Header Animation (Hide on scroll down, show on scroll up) */
@@ -88,17 +88,16 @@
 
     @media (max-width: 768px) {
       nav ul {
-        display: none; /* Hide on mobile – optionally implement hamburger */
+        display: none; /* Hide on mobile – optionally implement a hamburger menu */
       }
     }
 
     /***********************************************
-    * HERO SECTION (Now uses gradient instead of background image)
+    * HERO SECTION (Uses a gradient background)
     ***********************************************/
     .hero {
       width: 100%;
       height: 100vh;
-      /* Removed background image in favor of a gradient */
       background: linear-gradient(
         135deg,
         var(--primary-color) 0%,
@@ -108,15 +107,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
       text-align: center;
       color: var(--light-text-color);
+      position: relative;
     }
 
-    /* Removed the dark overlay (.hero::before) */
-
     .hero-content {
-      position: relative;
       z-index: 1;
       max-width: 800px;
       padding: 2rem;
@@ -145,7 +141,7 @@
     .hero h1 {
       font-size: 2.4rem;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
       animation: fadeInUp 1s ease; /* Fade in animation */
     }
 
@@ -153,8 +149,8 @@
       font-size: 1.3rem;
       margin-bottom: 2rem;
       font-weight: 300;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-      animation: fadeInUp 1.5s ease; /* Fade in animation with delay */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      animation: fadeInUp 1.5s ease; /* Delay fade in animation */
     }
 
     .hero button {
@@ -166,9 +162,9 @@
       font-weight: 600;
       border-radius: 5px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease, transform 0.3s ease;
-      animation: fadeInUp 2s ease; /* Fade in animation with delay */
+      animation: fadeInUp 2s ease; /* Delay fade in animation */
     }
 
     .hero button:hover {
@@ -179,7 +175,6 @@
     /***********************************************
     * SUMMARY STATS
     ***********************************************/
-    /* Slight gradient with subtle design for the stats section */
     .summary-stats {
       background: linear-gradient(
         135deg,
@@ -208,8 +203,7 @@
     .stat-number {
       font-size: 2.5rem;
       font-weight: bold;
-      color: #ffffff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .stat-label {
@@ -221,7 +215,7 @@
     * MAIN SECTION WRAPPER
     ***********************************************/
     main {
-      margin-top: 60px; /* So content is not hidden behind fixed header */
+      margin-top: 60px; /* So content is not hidden behind the fixed header */
     }
 
     section {
@@ -242,7 +236,7 @@
       position: relative;
     }
 
-    /* Simple decorative underline for headings */
+    /* Simple decorative underline for section headings */
     section h2::after {
       content: "";
       width: 80px;
@@ -270,8 +264,8 @@
 
     .about-content .personal-info {
       margin-bottom: 1.5rem;
-      color: #555;
       font-size: 1rem;
+      color: #555;
     }
 
     /***********************************************
@@ -328,13 +322,12 @@
       margin: 0 auto;
     }
 
-    /* Timeline or Card-like styles */
     .job-card {
       background-color: var(--neutral-color);
       margin-bottom: 2rem;
       padding: 1rem 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -397,7 +390,7 @@
     .edu-block, .cert-block {
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
       transition: transform 0.3s ease;
     }
@@ -476,11 +469,15 @@
     </nav>
   </header>
 
-  <!-- HERO (Now with a gradient instead of an image) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
+      <!-- Direct link to your GitHub photo -->
       <div class="profile-img-container">
-        <img src="your_photo.jpg" alt="Profile Picture of Abdoul Karim OUMAROU GAGERE" />
+        <img
+          src="https://raw.githubusercontent.com/kagagere/CV/main/photo.jpg"
+          alt="Profile Picture of Abdoul Karim OUMAROU GAGERE"
+        />
       </div>
       <h1>Abdoul Karim OUMAROU GAGERE</h1>
       <h2>Financial Analysis & Risk Management Expert</h2>
@@ -546,64 +543,54 @@
     <section id="skills" class="hidden">
       <h2>My Skills</h2>
       <div class="skills-container">
-
-        <!-- Example Progress Bars for Skills -->
         <div class="skills-item">
           <div class="skill-label">Financial Analysis & Reporting</div>
           <div class="progress-bar">
             <div class="progress" data-progress="90"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Risk Assessment & Management</div>
           <div class="progress-bar">
             <div class="progress" data-progress="88"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Regulatory Compliance (WAEMU & International)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="85"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Stakeholder Management & Collaboration</div>
           <div class="progress-bar">
             <div class="progress" data-progress="90"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Project Management (Financial Focus)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="80"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Understanding of Financial Institutions</div>
           <div class="progress-bar">
             <div class="progress" data-progress="85"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Training & Capacity Building (Financial Context)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="85"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Microsoft Office Suite (Word, Excel, PowerPoint)</div>
           <div class="progress-bar">
             <div class="progress" data-progress="92"></div>
           </div>
         </div>
-
         <div class="skills-item">
           <div class="skill-label">Bilingual Communication (French & English)</div>
           <div class="progress-bar">
@@ -625,7 +612,7 @@
           <ul>
             <li>
               Led development and implementation of interoperable QR Code payment 
-              standard and direct debit payment standard adopted by the BCEAO, 
+              standards and direct debit payment standards adopted by the BCEAO, 
               impacting over 130 banks across the WAEMU region.
             </li>
             <li>
@@ -654,7 +641,6 @@
             </li>
           </ul>
         </div>
-
         <!-- Job 2 -->
         <div class="job-card">
           <h3>FIDELITY INVESTMENTS CANADA</h3>
@@ -679,7 +665,6 @@
             </li>
           </ul>
         </div>
-
         <!-- Job 3 -->
         <div class="job-card">
           <h3>CHASE PAYMENTECH</h3>
@@ -699,9 +684,9 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION & TRAININGS -->
     <section id="education" class="hidden">
-      <h2>Education & Certifications</h2>
+      <h2>Education & Trainings</h2>
       <div class="education-content">
         <div class="edu-cert-grid">
           <!-- Education -->
@@ -712,9 +697,9 @@
               <li>Bachelor of Arts in Economics — University Moulay Ismail Meknes (2011)</li>
             </ul>
           </div>
-          <!-- Certifications -->
+          <!-- Trainings (formerly "Certifications") -->
           <div class="cert-block">
-            <h3>Certifications</h3>
+            <h3>Trainings</h3>
             <ul>
               <li>ISO 20022 CBPR+ (2023)</li>
               <li>Operational Risk Management (2023)</li>
@@ -772,7 +757,6 @@
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY) {
         // Scrolling down
         header.classList.add('header-hidden');
@@ -780,7 +764,6 @@
         // Scrolling up
         header.classList.remove('header-hidden');
       }
-
       lastScrollY = currentScrollY;
     });
   </script>
