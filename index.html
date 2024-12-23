@@ -7,6 +7,9 @@
   <meta name="author" content="Abdoul Karim OUMAROU GAGERE" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV - Abdoul Karim OUMAROU GAGERE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /***********************************************
     * GLOBAL RESET & THEME
@@ -15,29 +18,33 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif; /* Updated font */
       color: #333;
-      background-color: #f9fafc; /* Lighter background for the page */
-      overflow-x: hidden; /* Avoid horizontal scrolling */
-      scroll-behavior: smooth;
+      background-color: #f4f7fa; /* Softer background */
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     a {
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s ease;
     }
 
     :root {
-      /* Blue palette + neutral background */
-      --primary-color: #1E3A8A; /* Deep Blue */
-      --secondary-color: #3B82F6; /* Vibrant Blue */
-      --accent-color: #2563EB;   /* Mid-tone Blue for Buttons/Accents */
-      --neutral-color: #f9fafc;  /* Light neutral background */
-      --text-color: #1F2937;     /* Darker text for better contrast */
-      --light-text-color: #ffffff; /* White text where needed */
+      /* Refined Blue palette */
+      --primary-color: #1e3a8a;
+      --secondary-color: #4381ec; /* Slightly different vibrant blue */
+      --accent-color: #525ceb;   /* A touch more vibrant */
+      --neutral-color: #f4f7fa;
+      --text-color: #2d3748;
+      --light-text-color: #ffffff;
+      --shadow-color: rgba(17, 24, 39, 0.05); /* Tailwind's slate-900 with opacity */
     }
 
     /***********************************************
@@ -47,89 +54,96 @@
       position: fixed;
       top: 0;
       width: 100%;
-      height: 60px;
-      background-color: var(--primary-color);
+      height: 70px; /* Slightly taller header */
+      background-color: var(--light-text-color); /* Light header background */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 999;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-      transition: transform 0.5s ease; /* Smooth hide on scroll */
+      padding: 0 3rem; /* More horizontal padding */
+      z-index: 1000;
+      box-shadow: 0 1px 3px var(--shadow-color); /* Softer shadow */
+      transition: transform 0.3s ease;
     }
 
-    /* Header Animation (Hide on scroll down, show on scroll up) */
     .header-hidden {
-      transform: translateY(-60px); /* Hide the header */
+      transform: translateY(-70px);
     }
 
     .logo {
-      color: var(--light-text-color);
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 1px;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
     }
 
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     nav ul li a {
-      color: var(--light-text-color);
+      color: var(--text-color);
       font-weight: 500;
-      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
     }
 
     nav ul li a:hover {
       color: var(--secondary-color);
     }
 
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
     @media (max-width: 768px) {
       nav ul {
-        display: none; /* Hide on mobile – optionally implement a hamburger menu */
+        display: none;
       }
+      /* Implement hamburger menu here if needed */
     }
 
     /***********************************************
-    * HERO SECTION (Uses a gradient background)
+    * HERO SECTION
     ***********************************************/
     .hero {
       width: 100%;
-      height: 100vh;
-      background: linear-gradient(
-        135deg,
-        var(--primary-color) 0%,
-        var(--secondary-color) 100%
-      );
+      min-height: calc(100vh - 70px); /* Adjust height for fixed header */
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--light-text-color);
-      position: relative;
+      padding: 5rem 2rem; /* More padding */
     }
 
     .hero-content {
-      z-index: 1;
-      max-width: 800px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: 900px;
+      padding: 0;
+      animation: fadeIn 1s ease-out;
     }
 
-    /* Profile Image */
     .profile-img-container {
-      width: 180px;
-      height: 180px;
+      width: 150px; /* Slightly smaller */
+      height: 150px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 1.5rem;
-      border: 4px solid var(--accent-color);
-      animation: fadeInUp 1s ease;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--light-text-color); /* Light border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .profile-img-container img {
@@ -139,111 +153,116 @@
     }
 
     .hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-      animation: fadeInUp 1s ease; /* Fade in animation */
+      font-size: 2.8rem; /* Slightly larger */
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .hero h2 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      font-weight: 400;
       margin-bottom: 2rem;
-      font-weight: 300;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-      animation: fadeInUp 1.5s ease; /* Delay fade in animation */
+      color: #e0e7ff; /* Lighter text color */
     }
 
     .hero button {
-      padding: 0.75rem 2rem;
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
       background-color: var(--accent-color);
       border: none;
       color: var(--light-text-color);
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease, transform 0.3s ease;
-      animation: fadeInUp 2s ease; /* Delay fade in animation */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .hero button:hover {
-      background-color: #1D4ED8; /* Slightly darker blue on hover */
-      transform: translateY(-3px);
+      background-color: #3c4bc3;
+      transform: translateY(-2px);
     }
 
     /***********************************************
     * SUMMARY STATS
     ***********************************************/
     .summary-stats {
-      background: linear-gradient(
-        135deg,
-        var(--secondary-color) 0%,
-        #60a5fa 100%
-      );
-      color: var(--light-text-color);
-      padding: 2rem;
+      background-color: var(--light-text-color);
+      color: var(--text-color);
+      padding: 3rem 2rem;
       text-align: center;
+      box-shadow: 0 1px 3px var(--shadow-color);
     }
 
     .stats-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       flex-wrap: wrap;
       gap: 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .stat-item {
-      flex: 1;
-      min-width: 150px;
+      flex: 1 1 200px; /* Grow, shrink, base width */
+      padding: 1.5rem;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px var(--shadow-color);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
     }
 
     .stat-number {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      color: var(--secondary-color);
     }
 
     .stat-label {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: #71717a; /* Tailwind's gray-500 */
     }
 
     /***********************************************
     * MAIN SECTION WRAPPER
     ***********************************************/
     main {
-      margin-top: 60px; /* So content is not hidden behind the fixed header */
+      margin-top: 70px; /* Adjust for header height */
     }
 
     section {
-      min-height: 60vh;
-      padding: 4rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 5rem 3rem;
       background-color: var(--neutral-color);
     }
 
+    section:nth-child(odd) {
+      background-color: #fff;
+    }
+
     section h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--primary-color);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       text-align: center;
       position: relative;
     }
 
-    /* Simple decorative underline for section headings */
     section h2::after {
       content: "";
-      width: 80px;
-      height: 3px;
+      position: absolute;
+      left: 50%;
+      bottom: -0.5rem;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 4px;
       background-color: var(--accent-color);
-      display: block;
-      margin: 0.5rem auto 0;
       border-radius: 2px;
     }
 
@@ -251,21 +270,22 @@
     * ABOUT SECTION
     ***********************************************/
     #about {
-      background-color: #ffffff;
+      background-color: #fff;
     }
 
     .about-content {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
-      text-align: center;
-      line-height: 1.7;
-      color: #555;
+      text-align: justify;
+      color: var(--text-color);
+      font-size: 1.1rem;
     }
 
     .about-content .personal-info {
       margin-bottom: 1.5rem;
       font-size: 1rem;
       color: #555;
+      text-align: center;
     }
 
     /***********************************************
@@ -276,37 +296,39 @@
     }
 
     .skills-container {
-      max-width: 900px;
+      max-width: 800px;
       width: 100%;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .skills-item {
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
     }
 
     .skill-label {
       font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #444;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
     }
 
-    /* Skill Progress Bar */
     .progress-bar {
       position: relative;
       width: 100%;
-      height: 8px;
-      background-color: #ddd;
-      border-radius: 4px;
+      height: 10px;
+      background-color: #e2e8f0; /* Tailwind's gray-200 */
+      border-radius: 6px;
       overflow: hidden;
     }
 
     .progress {
       height: 100%;
       background-color: var(--secondary-color);
-      width: 0; /* Will animate via JS */
-      border-radius: 4px;
-      transition: width 1s ease-out;
+      width: 0;
+      border-radius: 6px;
+      transition: width 0.8s ease-out;
     }
 
     /***********************************************
@@ -325,9 +347,9 @@
     .job-card {
       background-color: var(--neutral-color);
       margin-bottom: 2rem;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px var(--shadow-color);
       transition: transform 0.3s ease;
     }
 
@@ -337,26 +359,27 @@
 
     .job-card h3 {
       color: var(--accent-color);
-      font-size: 1.3rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .job-card h4 {
       color: var(--primary-color);
-      margin-bottom: 0.2rem;
-      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
 
     .job-card h5 {
-      color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+      color: #71717a;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .job-card ul {
-      margin-left: 1.5rem;
-      list-style-type: square;
-      color: #555;
+      margin-left: 1.8rem;
+      list-style-type: disc;
+      color: #4a5568; /* Tailwind's gray-600 */
       line-height: 1.7;
       margin-top: 0.5rem;
     }
@@ -376,21 +399,15 @@
 
     .edu-cert-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    @media (max-width: 768px) {
-      .edu-cert-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .edu-block, .cert-block {
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px var(--shadow-color);
       padding: 1.5rem;
       transition: transform 0.3s ease;
     }
@@ -401,15 +418,29 @@
 
     .edu-block h3, .cert-block h3 {
       color: var(--accent-color);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
     }
 
     .edu-block ul, .cert-block ul {
-      list-style-type: disc;
-      margin-left: 1.3rem;
-      color: #555;
+      list-style-type: none;
+      padding-left: 0;
+      color: #4a5568;
       line-height: 1.7;
+    }
+
+    .edu-block ul li, .cert-block ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.3em;
+      position: relative;
+    }
+
+    .edu-block ul li::before, .cert-block ul li::before {
+      content: "\2022"; /* Bullet point */
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--secondary-color);
     }
 
     /***********************************************
@@ -419,11 +450,12 @@
       background-color: var(--primary-color);
       color: var(--light-text-color);
       text-align: center;
-      padding: 1rem 2rem;
+      padding: 2rem 3rem;
     }
 
     footer p {
       margin: 0.5rem 0;
+      font-size: 0.9rem;
     }
 
     /***********************************************
@@ -431,8 +463,8 @@
     ***********************************************/
     .hidden {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
     }
 
     .show {
@@ -451,6 +483,15 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   </style>
@@ -520,20 +561,20 @@
           <p><strong>Phone:</strong> (+221) 78 439 1923</p>
         </div>
         <p>
-          Highly analytical and results-oriented financial professional with over eight years 
-          of experience working within the West African financial sector, specializing in 
-          financial standardization and regulatory compliance. Proven ability to analyze 
-          financial data, assess risks, and ensure adherence to stringent regulatory 
-          frameworks within the WAEMU region. Extensive experience collaborating with and 
-          understanding the operational needs of financial institutions. Possesses a strong 
-          understanding of financial instruments and regulatory environments gained through 
+          Highly analytical and results-oriented financial professional with over eight years
+          of experience working within the West African financial sector, specializing in
+          financial standardization and regulatory compliance. Proven ability to analyze
+          financial data, assess risks, and ensure adherence to stringent regulatory
+          frameworks within the WAEMU region. Extensive experience collaborating with and
+          understanding the operational needs of financial institutions. Possesses a strong
+          understanding of financial instruments and regulatory environments gained through
           implementing key financial standards.
         </p>
         <br/>
         <p>
-          Seeking to leverage expertise in financial analysis, risk assessment, and 
-          stakeholder management to contribute to Shelter Afrique's mission of promoting 
-          sustainable housing development in Africa by effectively managing and optimizing 
+          Seeking to leverage expertise in financial analysis, risk assessment, and
+          stakeholder management to contribute to Shelter Afrique's mission of promoting
+          sustainable housing development in Africa by effectively managing and optimizing
           loan portfolios. Fluent in English and French.
         </p>
       </div>
@@ -611,32 +652,32 @@
           <h5>May 2019 – Present (Dakar, Senegal)</h5>
           <ul>
             <li>
-              Led development and implementation of interoperable QR Code payment 
-              standards and direct debit payment standards adopted by the BCEAO, 
+              Led development and implementation of interoperable QR Code payment
+              standards and direct debit payment standards adopted by the BCEAO,
               impacting over 130 banks across the WAEMU region.
             </li>
             <li>
-              Ensured projects met WAEMU regulations by liaising with regulatory 
+              Ensured projects met WAEMU regulations by liaising with regulatory
               bodies (BCEAO, AMF-UMOA), demonstrating strong regulatory understanding.
             </li>
             <li>
-              Prepared project proposals, reports, and strategic notes for 
+              Prepared project proposals, reports, and strategic notes for
               executive committees; managed budgets (~$48k USD annually).
             </li>
             <li>
-              Drafted RFPs and Terms of Reference for standardization projects, 
+              Drafted RFPs and Terms of Reference for standardization projects,
               aligning with regulatory standards and fostering transparency.
             </li>
             <li>
-              Developed internal procedures and quality assurance checks to improve 
+              Developed internal procedures and quality assurance checks to improve
               financial accountability and operational efficiency.
             </li>
             <li>
-              Organized workshops in seven West African countries, building 
+              Organized workshops in seven West African countries, building
               regional capacity in financial standardization and compliance.
             </li>
             <li>
-              Engaged with BCEAO, AMF-UMOA, and financial institutions to 
+              Engaged with BCEAO, AMF-UMOA, and financial institutions to
               provide training, fostering strong partnerships.
             </li>
           </ul>
@@ -648,19 +689,19 @@
           <h5>Dec 2015 – Jan 2018 (Toronto, Canada)</h5>
           <ul>
             <li>
-              Provided expert advice on mutual fund regulations and 
+              Provided expert advice on mutual fund regulations and
               investment strategies, leveraging deep knowledge of financial products.
             </li>
             <li>
-              Managed client inquiries and supported investment brokers, 
+              Managed client inquiries and supported investment brokers,
               adhering to regulatory requirements in all interactions.
             </li>
             <li>
-              Contributed to process improvements for enhanced service delivery 
+              Contributed to process improvements for enhanced service delivery
               in a regulated financial environment.
             </li>
             <li>
-              Ensured strict compliance with Canadian financial regulations and 
+              Ensured strict compliance with Canadian financial regulations and
               company policies in client engagements.
             </li>
           </ul>
@@ -672,11 +713,11 @@
           <h5>Feb 2015 – Dec 2015 (Toronto, Canada)</h5>
           <ul>
             <li>
-              Provided technical support to merchants on payment systems, 
+              Provided technical support to merchants on payment systems,
               requiring an understanding of financial transaction processes and security.
             </li>
             <li>
-              Analyzed financial transactions to resolve discrepancies and 
+              Analyzed financial transactions to resolve discrepancies and
               prevent fraud, showcasing attention to detail in financial matters.
             </li>
           </ul>
@@ -735,33 +776,44 @@
     hiddenSections.forEach(section => sectionObserver.observe(section));
 
     // Animate skill progress bars
-    window.addEventListener('scroll', function() {
+    const animateProgressBars = () => {
       const progressBars = document.querySelectorAll('.progress');
       progressBars.forEach(bar => {
         const rect = bar.getBoundingClientRect();
-        if (
-          rect.top >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        ) {
-          // Animate only once if not already set
+        if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
           if (!bar.style.width || bar.style.width === '0px') {
             const finalWidth = bar.getAttribute('data-progress') + '%';
             bar.style.width = finalWidth;
           }
         }
       });
+    };
+
+    let animationFrameRequested = false;
+
+    window.addEventListener('scroll', () => {
+      if (!animationFrameRequested) {
+        requestAnimationFrame(() => {
+          animateProgressBars();
+          animationFrameRequested = false;
+        });
+        animationFrameRequested = true;
+      }
     });
+
+    // Initial animation check in case the skills section is in view on load
+    animateProgressBars();
 
     // Header animation (hide on scroll down, show on scroll up)
     let lastScrollY = window.scrollY;
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down
+      if (currentScrollY > lastScrollY && currentScrollY > header.offsetHeight) {
+        // Scrolling down and past the header height
         header.classList.add('header-hidden');
       } else {
-        // Scrolling up
+        // Scrolling up or at the top
         header.classList.remove('header-hidden');
       }
       lastScrollY = currentScrollY;
