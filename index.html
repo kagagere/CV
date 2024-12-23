@@ -2,29 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CV for Abdoul Karim OUMAROU GAGERE" />
+  <meta name="keywords" content="CV, Profile, Finance, Risk Management, WAEMU" />
+  <meta name="author" content="Abdoul Karim OUMAROU GAGERE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV - Abdoul Karim OUMAROU GAGERE</title>
-  <!-- 
-    If you want icons, you can also link a library like FontAwesome or Google Material Icons:
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  -->
   <style>
-    /* ----------------------------- 
-       RESET / GLOBAL STYLES
-       ----------------------------- */
+    /***********************************************
+    * GLOBAL RESET & THEME
+    ***********************************************/
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Arial', sans-serif;
     }
 
     body {
-      background: #f7f7f7;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
-      line-height: 1.6;
-      overflow-x: hidden; /* hide horizontal scroll if there's any overflow */
+      background-color: #f1f1f1;
+      overflow-x: hidden; /* Avoid horizontal scrolling */
+      scroll-behavior: smooth;
     }
 
     a {
@@ -32,26 +30,18 @@
       color: inherit;
     }
 
-    ul, li {
-      list-style: none;
-    }
-
-    /* -----------------------------
-       COLORS / THEME
-       You can easily change these if you want a different palette
-       ----------------------------- */
     :root {
-      --primary-color: #162447; /* Dark royal blue */
-      --secondary-color: #1f4068; /* A deeper blue */
-      --accent-color: #e43f5a; /* A vibrant accent (red/pinkish) */
-      --light-color: #ffffff;
-      --gray-color: #888888;
-      --section-bg-color: #fdfdfd;
+      --primary-color: #0b3c5d;
+      --secondary-color: #328cc1;
+      --accent-color: #d9b310;
+      --neutral-color: #f1f1f1;
+      --text-color: #333;
+      --light-text-color: #fff;
     }
 
-    /* -----------------------------
-       HEADER STYLES
-       ----------------------------- */
+    /***********************************************
+    * HEADER
+    ***********************************************/
     header {
       position: fixed;
       top: 0;
@@ -63,22 +53,24 @@
       justify-content: space-between;
       padding: 0 2rem;
       z-index: 999;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
     .logo {
-      font-size: 1.2rem;
+      color: var(--light-text-color);
+      font-size: 1.3rem;
       font-weight: bold;
-      color: var(--light-color);
+      letter-spacing: 1px;
     }
 
     nav ul {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      list-style: none;
     }
 
     nav ul li a {
-      color: var(--light-color);
+      color: var(--light-text-color);
       font-weight: 500;
       transition: color 0.3s ease;
     }
@@ -87,213 +79,244 @@
       color: var(--accent-color);
     }
 
-    /* Responsive header for smaller devices */
     @media (max-width: 768px) {
       nav ul {
-        display: none; /* Hide on small screens - optional. 
-                         Could add hamburger if you'd like. */
+        display: none; /* Hide on mobile – optionally implement hamburger */
       }
     }
 
-    /* -----------------------------
-       HERO SECTION
-       ----------------------------- */
+    /***********************************************
+    * HERO (Parallax)
+    ***********************************************/
     .hero {
+      width: 100%;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1950&q=80')
+        no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      position: relative;
       text-align: center;
-      background: linear-gradient(
-        135deg,
-        var(--primary-color) 0%,
-        var(--secondary-color) 100%
-      );
-      color: #fff;
+      color: var(--light-text-color);
+    }
+
+    /* Dark Overlay */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
       padding: 2rem;
     }
 
     .hero h1 {
       font-size: 2.4rem;
       margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     }
 
     .hero h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
+      font-size: 1.3rem;
       margin-bottom: 2rem;
-      color: #ddd;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
 
     .hero button {
-      padding: 0.7rem 2rem;
+      padding: 0.75rem 2rem;
       background-color: var(--accent-color);
       border: none;
-      color: #fff;
+      color: var(--text-color);
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 600;
+      border-radius: 5px;
       cursor: pointer;
-      border-radius: 25px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .hero button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      background-color: #c9a10c;
+      transform: translateY(-3px);
     }
 
-    /* -----------------------------
-       ABOUT / SUMMARY
-       ----------------------------- */
-    #about {
-      min-height: 100vh;
-      background-color: var(--section-bg-color);
+    /***********************************************
+    * MAIN SECTION WRAPPER
+    ***********************************************/
+    main {
+      margin-top: 60px; /* So content is not hidden behind fixed header */
+    }
+
+    section {
+      min-height: 60vh;
+      padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      padding: 4rem 2rem;
+      background-color: var(--neutral-color);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Simple decorative underline for headings */
+    section h2::after {
+      content: "";
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent-color);
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /***********************************************
+    * ABOUT SECTION
+    ***********************************************/
+    #about {
+      background-color: #fefefe;
     }
 
     .about-content {
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+      line-height: 1.7;
+      color: #555;
     }
 
-    .about-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-
-    .personal-info {
-      font-size: 1rem;
+    .about-content .personal-info {
       margin-bottom: 1.5rem;
-      color: var(--gray-color);
+      color: #777;
+      font-size: 1rem;
     }
 
-    .summary {
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    /* -----------------------------
-       SKILLS
-       ----------------------------- */
+    /***********************************************
+    * SKILLS SECTION
+    ***********************************************/
     #skills {
-      min-height: 100vh;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 2rem;
+      background-color: var(--neutral-color);
     }
 
-    .skills-content {
+    .skills-container {
       max-width: 900px;
+      width: 100%;
       margin: 0 auto;
-      text-align: center;
     }
 
-    .skills-content h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
+    .skills-item {
+      margin-bottom: 1.5rem;
     }
 
-    .skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+    .skill-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #444;
     }
 
-    .skill-item {
-      background: var(--section-bg-color);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
+    /* Skill Progress Bar */
+    .progress-bar {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background-color: #ddd;
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    .skill-item:hover {
-      transform: translateY(-3px);
+    .progress {
+      height: 100%;
+      background-color: var(--secondary-color);
+      width: 0; /* Will animate via JS */
+      border-radius: 4px;
+      transition: width 1s ease-out;
     }
 
-    /* -----------------------------
-       EXPERIENCE
-       ----------------------------- */
+    /***********************************************
+    * EXPERIENCE SECTION
+    ***********************************************/
     #experience {
-      min-height: 100vh;
-      background-color: var(--section-bg-color);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 2rem;
+      background-color: #fff;
     }
 
     .experience-content {
       max-width: 900px;
+      width: 100%;
       margin: 0 auto;
     }
 
-    .experience-content h2 {
-      font-size: 2rem;
+    /* Timeline or Card-like styles */
+    .job-card {
+      background-color: var(--neutral-color);
       margin-bottom: 2rem;
-      text-align: center;
-      color: var(--primary-color);
-    }
-
-    .job {
-      background: #fff;
-      margin-bottom: 2rem;
-      padding: 1rem 1.5rem;
+      padding: 1rem 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .job h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.2rem;
+    .job-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .job-card h3 {
       color: var(--accent-color);
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
     }
 
-    .job h4 {
+    .job-card h4 {
       color: var(--primary-color);
       margin-bottom: 0.2rem;
+      font-size: 1.1rem;
     }
 
-    .job h5 {
+    .job-card h5 {
+      color: #666;
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
-      color: var(--gray-color);
     }
 
-    .job ul {
-      padding-left: 1.2rem;
+    .job-card ul {
+      margin-left: 1.5rem;
+      list-style-type: square;
+      color: #555;
+      line-height: 1.7;
       margin-top: 0.5rem;
-      list-style: square;
     }
 
-    /* -----------------------------
-       EDUCATION & CERTIFICATIONS
-       ----------------------------- */
+    /***********************************************
+    * EDUCATION SECTION
+    ***********************************************/
     #education {
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 2rem;
+      background-color: var(--neutral-color);
     }
 
     .education-content {
       max-width: 900px;
+      width: 100%;
       margin: 0 auto;
     }
 
-    .education-certification-section {
+    .edu-cert-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
@@ -301,34 +324,42 @@
     }
 
     @media (max-width: 768px) {
-      .education-certification-section {
+      .edu-cert-grid {
         grid-template-columns: 1fr;
       }
     }
 
     .edu-block, .cert-block {
-      background: var(--section-bg-color);
-      padding: 1.5rem;
+      background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .edu-block:hover, .cert-block:hover {
+      transform: translateY(-3px);
     }
 
     .edu-block h3, .cert-block h3 {
       color: var(--accent-color);
+      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
 
     .edu-block ul, .cert-block ul {
-      list-style: circle;
-      padding-left: 1.4rem;
+      list-style-type: disc;
+      margin-left: 1.3rem;
+      color: #555;
+      line-height: 1.7;
     }
 
-    /* -----------------------------
-       FOOTER
-       ----------------------------- */
+    /***********************************************
+    * FOOTER
+    ***********************************************/
     footer {
       background-color: var(--primary-color);
-      color: #fff;
+      color: var(--light-text-color);
       text-align: center;
       padding: 1rem 2rem;
     }
@@ -337,24 +368,12 @@
       margin: 0.5rem 0;
     }
 
-    footer a {
-      color: var(--accent-color);
-      margin: 0 0.3rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* -----------------------------
-       SCROLL ANIMATIONS (Optional)
-       We'll add a fade-in effect for sections with basic intersection observer in JS
-       ----------------------------- */
+    /***********************************************
+    * SCROLL ANIMATION CLASSES
+    ***********************************************/
     .hidden {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(40px);
       transition: all 0.8s ease;
     }
 
@@ -365,7 +384,7 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="logo">AKOG</div>
     <nav>
@@ -373,32 +392,33 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education & Certs</a></li>
+        <li><a href="#education">Education</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Abdoul Karim OUMAROU GAGERE</h1>
-    <h2>Financial Analysis &amp; Risk Management Expert</h2>
-    <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">
-      Learn More
-    </button>
+    <div class="hero-content">
+      <h1>Abdoul Karim OUMAROU GAGERE</h1>
+      <h2>Financial Analysis &amp; Risk Management Expert</h2>
+      <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">
+        Learn More
+      </button>
+    </div>
   </section>
 
-  <!-- ABOUT / SUMMARY SECTION -->
-  <section id="about" class="hidden">
-    <div class="about-content">
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="hidden">
       <h2>About Me</h2>
-      <div class="personal-info">
-        <p>Address: Liberté 6 extension — Dakar, SENEGAL</p>
-        <p>Phone: (+221) 78 439 1923</p>
-        <p>Email: abdoulkarim.gagere@gmail.com</p>
-        <p>Nationality: Nigerien</p>
-        <p>Marital Status: Married, 1 child</p>
-      </div>
-      <div class="summary">
+      <div class="about-content">
+        <div class="personal-info">
+          <p><strong>Address:</strong> Liberté 6 extension — Dakar, SENEGAL</p>
+          <p><strong>Phone:</strong> (+221) 78 439 1923</p>
+          <!-- Removed Email, Nationality, and Marital Status as requested -->
+        </div>
         <p>
           Highly analytical and results-oriented financial professional with over eight years 
           of experience working within the West African financial sector, specializing in 
@@ -407,202 +427,242 @@
           frameworks within the WAEMU region. Extensive experience collaborating with and 
           understanding the operational needs of financial institutions. Possesses a strong 
           understanding of financial instruments and regulatory environments gained through 
-          implementing key financial standards.<br/><br/>
-
+          implementing key financial standards.
+        </p>
+        <br/>
+        <p>
           Seeking to leverage expertise in financial analysis, risk assessment, and 
           stakeholder management to contribute to Shelter Afrique's mission of promoting 
           sustainable housing development in Africa by effectively managing and optimizing 
           loan portfolios. Fluent in English and French.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="hidden">
-    <div class="skills-content">
+    <!-- SKILLS -->
+    <section id="skills" class="hidden">
       <h2>My Skills</h2>
-      <div class="skills-list">
-        <div class="skill-item">
-          Financial Analysis &amp; Reporting
+      <div class="skills-container">
+
+        <!-- Example Progress Bars for Skills -->
+        <div class="skills-item">
+          <div class="skill-label">Financial Analysis &amp; Reporting</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="90"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Risk Assessment &amp; Management
+
+        <div class="skills-item">
+          <div class="skill-label">Risk Assessment &amp; Management</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="88"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Regulatory Compliance (WAEMU &amp; Int'l Standards)
+
+        <div class="skills-item">
+          <div class="skill-label">Regulatory Compliance (WAEMU &amp; International)</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="85"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Stakeholder Management &amp; Collaboration
+
+        <div class="skills-item">
+          <div class="skill-label">Stakeholder Management &amp; Collaboration</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="90"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Project Management (Financial Focus)
+
+        <div class="skills-item">
+          <div class="skill-label">Project Management (Financial Focus)</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="80"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Understanding of Financial Institutions
+
+        <div class="skills-item">
+          <div class="skill-label">Understanding of Financial Institutions</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="85"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Training &amp; Capacity Building (Financial Context)
+
+        <div class="skills-item">
+          <div class="skill-label">Training &amp; Capacity Building (Financial Context)</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="85"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Software Proficiency: Microsoft Office Suite
+
+        <div class="skills-item">
+          <div class="skill-label">Microsoft Office Suite (Word, Excel, PowerPoint)</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="92"></div>
+          </div>
         </div>
-        <div class="skill-item">
-          Bilingual Communication (French &amp; English)
+
+        <div class="skills-item">
+          <div class="skill-label">Bilingual Communication (French &amp; English)</div>
+          <div class="progress-bar">
+            <div class="progress" data-progress="95"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE SECTION -->
-  <section id="experience" class="hidden">
-    <div class="experience-content">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="hidden">
       <h2>Professional Experience</h2>
-
-      <!-- Job 1 -->
-      <div class="job">
-        <h3>CONOBAFI</h3>
-        <h4>Standardization Specialist</h4>
-        <h5>May 2019 – Present (Dakar, Senegal)</h5>
-        <ul>
-          <li>
-            Led development and implementation of interoperable QR Code payment standard 
-            and direct debit payment standard adopted by the BCEAO, impacting over 
-            130 banks across the WAEMU region.
-          </li>
-          <li>
-            Ensured projects met WAEMU regulations by liaising with regulatory bodies 
-            (BCEAO, AMF-UMOA), demonstrating strong regulatory understanding.
-          </li>
-          <li>
-            Prepared project proposals, progress reports, and strategic notes for 
-            executive committees; managed budgets (approx. $48,000 USD annually).
-          </li>
-          <li>
-            Drafted RFPs and Terms of Reference for standardization projects, aligning 
-            with regulatory standards and fostering transparency.
-          </li>
-          <li>
-            Developed internal procedures and quality assurance checks to improve 
-            financial accountability and operational efficiency.
-          </li>
-          <li>
-            Organized and conducted workshops in seven West African countries to build 
-            regional capacity in financial standardization and compliance.
-          </li>
-          <li>
-            Engaged with BCEAO, AMF-UMOA, and financial institutions to provide training 
-            and presentations, fostering strong partnerships.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Job 2 -->
-      <div class="job">
-        <h3>FIDELITY INVESTMENTS CANADA</h3>
-        <h4>Senior Bilingual Financial Service Representative</h4>
-        <h5>Dec 2015 – Jan 2018 (Toronto, Canada)</h5>
-        <ul>
-          <li>
-            Provided expert advice on mutual fund regulations and investment strategies, 
-            leveraging deep knowledge of financial products.
-          </li>
-          <li>
-            Managed client inquiries and supported investment brokers, adhering to 
-            regulatory requirements in client interactions.
-          </li>
-          <li>
-            Contributed to process improvement initiatives for enhanced service delivery 
-            in a regulated financial environment.
-          </li>
-          <li>
-            Ensured strict compliance with Canadian financial regulations and company 
-            policies in all client engagements.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Job 3 -->
-      <div class="job">
-        <h3>CHASE PAYMENTECH</h3>
-        <h4>Bilingual Client Service Specialist</h4>
-        <h5>Feb 2015 – Dec 2015 (Toronto, Canada)</h5>
-        <ul>
-          <li>
-            Provided technical support to merchants on payment systems, requiring 
-            understanding of financial transaction processes and security.
-          </li>
-          <li>
-            Analyzed financial transactions to resolve discrepancies and prevent fraud, 
-            showcasing attention to detail in financial matters.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION & CERTIFICATIONS SECTION -->
-  <section id="education" class="hidden">
-    <div class="education-content">
-      <h2 style="text-align:center;">Education &amp; Certifications</h2>
-
-      <div class="education-certification-section">
-        <!-- Education -->
-        <div class="edu-block">
-          <h3>Education</h3>
+      <div class="experience-content">
+        <!-- Job 1 -->
+        <div class="job-card">
+          <h3>CONOBAFI</h3>
+          <h4>Standardization Specialist</h4>
+          <h5>May 2019 – Present (Dakar, Senegal)</h5>
           <ul>
-            <li>Post Graduate Diploma in Finance — University of Quebec at Trois-Rivieres (2014)</li>
-            <li>Bachelor of Arts in Economics — University Moulay Ismail Meknes (2011)</li>
+            <li>
+              Led development and implementation of interoperable QR Code payment 
+              standard and direct debit payment standard adopted by the BCEAO, 
+              impacting over 130 banks across the WAEMU region.
+            </li>
+            <li>
+              Ensured projects met WAEMU regulations by liaising with regulatory 
+              bodies (BCEAO, AMF-UMOA), demonstrating strong regulatory understanding.
+            </li>
+            <li>
+              Prepared project proposals, reports, and strategic notes for 
+              executive committees; managed budgets (~$48k USD annually).
+            </li>
+            <li>
+              Drafted RFPs and Terms of Reference for standardization projects, 
+              aligning with regulatory standards and fostering transparency.
+            </li>
+            <li>
+              Developed internal procedures and quality assurance checks to improve 
+              financial accountability and operational efficiency.
+            </li>
+            <li>
+              Organized workshops in seven West African countries, building 
+              regional capacity in financial standardization and compliance.
+            </li>
+            <li>
+              Engaged with BCEAO, AMF-UMOA, and financial institutions to 
+              provide training, fostering strong partnerships.
+            </li>
           </ul>
         </div>
 
-        <!-- Certifications -->
-        <div class="cert-block">
-          <h3>Certifications</h3>
+        <!-- Job 2 -->
+        <div class="job-card">
+          <h3>FIDELITY INVESTMENTS CANADA</h3>
+          <h4>Senior Bilingual Financial Service Representative</h4>
+          <h5>Dec 2015 – Jan 2018 (Toronto, Canada)</h5>
           <ul>
-            <li>ISO 20022 CBPR+ (2023)</li>
-            <li>Operational Risk Management (2023)</li>
-            <li>Quality Management Systems ISO 9001 (2022)</li>
-            <li>Project Management Training (2021)</li>
+            <li>
+              Provided expert advice on mutual fund regulations and 
+              investment strategies, leveraging deep knowledge of financial products.
+            </li>
+            <li>
+              Managed client inquiries and supported investment brokers, 
+              adhering to regulatory requirements in all interactions.
+            </li>
+            <li>
+              Contributed to process improvements for enhanced service delivery 
+              in a regulated financial environment.
+            </li>
+            <li>
+              Ensured strict compliance with Canadian financial regulations and 
+              company policies in client engagements.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card">
+          <h3>CHASE PAYMENTECH</h3>
+          <h4>Bilingual Client Service Specialist</h4>
+          <h5>Feb 2015 – Dec 2015 (Toronto, Canada)</h5>
+          <ul>
+            <li>
+              Provided technical support to merchants on payment systems, 
+              requiring an understanding of financial transaction processes and security.
+            </li>
+            <li>
+              Analyzed financial transactions to resolve discrepancies and 
+              prevent fraud, showcasing attention to detail in financial matters.
+            </li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="hidden">
+      <h2>Education &amp; Certifications</h2>
+      <div class="education-content">
+        <div class="edu-cert-grid">
+          <!-- Education -->
+          <div class="edu-block">
+            <h3>Education</h3>
+            <ul>
+              <li>Post Graduate Diploma in Finance — University of Quebec at Trois-Rivieres (2014)</li>
+              <li>Bachelor of Arts in Economics — University Moulay Ismail Meknes (2011)</li>
+            </ul>
+          </div>
+          <!-- Certifications -->
+          <div class="cert-block">
+            <h3>Certifications</h3>
+            <ul>
+              <li>ISO 20022 CBPR+ (2023)</li>
+              <li>Operational Risk Management (2023)</li>
+              <li>Quality Management Systems ISO 9001 (2022)</li>
+              <li>Project Management Training (2021)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2024 Abdoul Karim OUMAROU GAGERE</p>
-    <p>
-      <a href="mailto:abdoulkarim.gagere@gmail.com">Email</a> | 
-      <a href="tel:+221784391923">Phone</a> 
-    </p>
+    <!-- Removed email link; only phone was requested to remain. -->
   </footer>
 
-  <!-- JavaScript (Optional) 
-       This script is used to reveal sections smoothly as you scroll
-  -->
+  <!-- JS: Intersection Observer + Skill Bar Animation -->
   <script>
-    // Basic intersection observer for fade-in effect
+    // Reveal sections on scroll
     const hiddenSections = document.querySelectorAll('.hidden');
-
     const revealSection = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
-          observer.unobserve(entry.target); // Stop observing once shown
+          observer.unobserve(entry.target);
         }
       });
     };
-
-    const observerOptions = {
+    const sectionObserver = new IntersectionObserver(revealSection, {
       threshold: 0.1,
-    };
+    });
+    hiddenSections.forEach(section => sectionObserver.observe(section));
 
-    const sectionObserver = new IntersectionObserver(revealSection, observerOptions);
-
-    hiddenSections.forEach(section => {
-      sectionObserver.observe(section);
+    // Animate skill progress bars
+    window.addEventListener('scroll', function() {
+      const progressBars = document.querySelectorAll('.progress');
+      progressBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (
+          rect.top >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+          // Animate only once if not already set
+          if (!bar.style.width || bar.style.width === '0px') {
+            const finalWidth = bar.getAttribute('data-progress') + '%';
+            bar.style.width = finalWidth;
+          }
+        }
+      });
     });
   </script>
 </body>
