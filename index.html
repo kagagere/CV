@@ -20,7 +20,7 @@
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
-      background-color: #f1f1f1;
+      background-color: #f9fafc; /* Lighter background for the page */
       overflow-x: hidden; /* Avoid horizontal scrolling */
       scroll-behavior: smooth;
     }
@@ -31,12 +31,13 @@
     }
 
     :root {
-      --primary-color: #0b3c5d;
-      --secondary-color: #328cc1;
-      --accent-color: #d9b310;
-      --neutral-color: #f1f1f1;
-      --text-color: #333;
-      --light-text-color: #fff;
+      /* New blues + neutral palette */
+      --primary-color: #1E3A8A; /* Deep Blue */
+      --secondary-color: #3B82F6; /* Vibrant Blue */
+      --accent-color: #2563EB;   /* Mid-tone Blue for Buttons/Accents */
+      --neutral-color: #f9fafc;  /* Light neutral background */
+      --text-color: #1F2937;     /* Darker text for better contrast */
+      --light-text-color: #ffffff; /* White text where needed */
     }
 
     /***********************************************
@@ -82,7 +83,7 @@
     }
 
     nav ul li a:hover {
-      color: var(--accent-color);
+      color: var(--secondary-color);
     }
 
     @media (max-width: 768px) {
@@ -92,13 +93,17 @@
     }
 
     /***********************************************
-    * HERO (Parallax)
+    * HERO SECTION (Now uses gradient instead of background image)
     ***********************************************/
     .hero {
       width: 100%;
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1950&q=80')
-        no-repeat center center/cover;
+      /* Removed background image in favor of a gradient */
+      background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+      );
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -108,17 +113,7 @@
       color: var(--light-text-color);
     }
 
-    /* Dark Overlay */
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
+    /* Removed the dark overlay (.hero::before) */
 
     .hero-content {
       position: relative;
@@ -150,7 +145,7 @@
     .hero h1 {
       font-size: 2.4rem;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
       animation: fadeInUp 1s ease; /* Fade in animation */
     }
 
@@ -158,7 +153,7 @@
       font-size: 1.3rem;
       margin-bottom: 2rem;
       font-weight: 300;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
       animation: fadeInUp 1.5s ease; /* Fade in animation with delay */
     }
 
@@ -166,7 +161,7 @@
       padding: 0.75rem 2rem;
       background-color: var(--accent-color);
       border: none;
-      color: var(--text-color);
+      color: var(--light-text-color);
       font-size: 1rem;
       font-weight: 600;
       border-radius: 5px;
@@ -177,15 +172,20 @@
     }
 
     .hero button:hover {
-      background-color: #c9a10c;
+      background-color: #1D4ED8; /* Slightly darker blue on hover */
       transform: translateY(-3px);
     }
 
     /***********************************************
     * SUMMARY STATS
     ***********************************************/
+    /* Slight gradient with subtle design for the stats section */
     .summary-stats {
-      background-color: var(--primary-color);
+      background: linear-gradient(
+        135deg,
+        var(--secondary-color) 0%,
+        #60a5fa 100%
+      );
       color: var(--light-text-color);
       padding: 2rem;
       text-align: center;
@@ -196,6 +196,8 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .stat-item {
@@ -206,7 +208,8 @@
     .stat-number {
       font-size: 2.5rem;
       font-weight: bold;
-      color: var(--accent-color);
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .stat-label {
@@ -254,7 +257,7 @@
     * ABOUT SECTION
     ***********************************************/
     #about {
-      background-color: #fefefe;
+      background-color: #ffffff;
     }
 
     .about-content {
@@ -267,7 +270,7 @@
 
     .about-content .personal-info {
       margin-bottom: 1.5rem;
-      color: #777;
+      color: #555;
       font-size: 1rem;
     }
 
@@ -473,7 +476,7 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (Now with a gradient instead of an image) -->
   <section class="hero">
     <div class="hero-content">
       <div class="profile-img-container">
@@ -518,7 +521,6 @@
         <div class="personal-info">
           <p><strong>Address:</strong> Liberté 6 extension — Dakar, SENEGAL</p>
           <p><strong>Phone:</strong> (+221) 78 439 1923</p>
-          <!-- Removed Email, Nationality, and Marital Status as requested -->
         </div>
         <p>
           Highly analytical and results-oriented financial professional with over eight years 
@@ -728,7 +730,6 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2024 Abdoul Karim OUMAROU GAGERE</p>
-    <!-- Removed email link; only phone was requested to remain. -->
   </footer>
 
   <!-- JS: Intersection Observer + Skill Bar Animation + Header Animation -->
